@@ -4,7 +4,7 @@ A loud red, black and white Hugo theme for personal blogs. The frame is a stage:
 
 ![Stage theme screenshot](https://raw.githubusercontent.com/basteez/hugo-theme-stage/main/images/screenshot.png)
 
-**Demo:** <https://basteez.github.io/hugo-theme-stage/>
+**Demo:** <https://bstz.it/hugo-theme-stage/>
 
 Style inspired by the menus and UI of *Persona 5*. Stage is an independent fan project: it is not affiliated with or endorsed by Atlus or SEGA, and it uses no assets, logos, fonts or text from the game.
 
