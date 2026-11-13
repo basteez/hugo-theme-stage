@@ -1,0 +1,51 @@
+<!doctype html>
+<!--
+  Source artwork for the images the theme draws on at build time. Hugo does not read this folder.
+  Run `node _source/render.mjs` (needs the `playwright` package and Chrome) to regenerate:
+
+    #card-base     -> assets/og/card-base.png     1200x630 background of every link-preview card
+    .tile          -> assets/og/tiles/<colour>-<n>.png   cut-paper tiles for the ransom-note letters
+    #strip         -> assets/og/strip.png         white tape strip under the role on the site card
+    #favicon-base  -> assets/og/favicon-base.png  180x180 background of the letter favicon
+
+  None of them contains text: layouts/_partials/stage/og-card.html and favicon-image.html write
+  the site's own words on them. If you move the slab on #card-base, update the x/y values there.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--red:#e60012;--black:#000;--white:#fff}
+body{margin:0;background:#555;display:flex;flex-wrap:wrap;gap:20px;padding:20px;align-items:flex-start}
+#card-base{position:relative;width:1200px;height:630px;overflow:hidden;
+  background-color:var(--red);background-image:radial-gradient(rgba(0,0,0,.26) 2.6px,transparent 3px);background-size:12px 12px}
+.burst{position:absolute;width:1920px;height:1920px;right:-744px;top:50%;margin-top:-960px;border-radius:50%;
+  background:repeating-conic-gradient(rgba(0,0,0,.22) 0 11deg,transparent 11deg 22.5deg)}
+.slab{position:absolute;left:0;top:57px;bottom:57px;width:936px;background:var(--white);
+  clip-path:polygon(0 0,100% 0,96% 18%,98% 19.5%,90% 62%,93% 63.5%,86% 100%,0 100%)}
+.slab::after{content:"";position:absolute;inset:0;background:var(--black);
+  clip-path:polygon(0 0,97.6% 0,93.6% 17.5%,95.6% 19%,87.6% 61.5%,90.6% 63%,83.6% 100%,0 100%)}
+/* tiles: 160x200 transparent canvas, the paper shape slightly tilted and ragged */
+.tile{width:160px;height:200px;display:grid;place-items:center}
+.tile i{display:block;width:134px;height:172px}
+.white i{background:var(--white)}.red i{background:var(--red)}.black i{background:var(--black);outline:3px solid var(--white);outline-offset:-3px}
+.s0 i{transform:rotate(-6deg);clip-path:polygon(3% 2%,98% 5%,96% 97%,1% 95%)}
+.s1 i{transform:rotate(5deg);clip-path:polygon(0 6%,97% 0,100% 94%,4% 100%)}
+.s2 i{transform:rotate(-3deg);clip-path:polygon(5% 0,100% 3%,95% 100%,0 96%)}
+.s3 i{transform:rotate(7deg);clip-path:polygon(2% 4%,95% 1%,99% 98%,3% 93%)}
+#strip{width:600px;height:56px;display:grid;place-items:center}
+#strip i{display:block;width:580px;height:56px;background:var(--white);clip-path:polygon(3% 0,100% 0,97% 100%,0 100%)}
+#favicon-base{position:relative;width:180px;height:180px;background:var(--black);border-radius:28px;overflow:hidden}
+#favicon-base .p1{position:absolute;inset:0;background:var(--white);clip-path:polygon(19% 14%,84% 11%,81% 89%,16% 86%);transform:rotate(-8deg)}
+#favicon-base .p2{position:absolute;inset:0;background:var(--red);clip-path:polygon(23% 19%,80% 16%,77% 84%,20% 81%);transform:rotate(-8deg)}
+</style>
+</head>
+<body>
+  <div id="card-base"><div class="burst"></div><div class="slab"></div></div>
+  <div class="tile white s0"><i></i></div><div class="tile white s1"><i></i></div><div class="tile white s2"><i></i></div><div class="tile white s3"><i></i></div>
+  <div class="tile red s0"><i></i></div><div class="tile red s1"><i></i></div><div class="tile red s2"><i></i></div><div class="tile red s3"><i></i></div>
+  <div class="tile black s0"><i></i></div><div class="tile black s1"><i></i></div><div class="tile black s2"><i></i></div><div class="tile black s3"><i></i></div>
+  <div id="strip"><i></i></div>
+  <div id="favicon-base"><div class="p1"></div><div class="p2"></div></div>
+</body>
+</html>
